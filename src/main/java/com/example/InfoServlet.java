@@ -42,7 +42,7 @@ public class InfoServlet extends HttpServlet {
         out.println("<input type='submit' value='Thêm'>");
         out.println("</form>");
         
-        out.println("<a href='http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/'><button>Back to Home</button></a>");
+        out.println("<a href='http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/'><button>Back to Home ok </button></a>");
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
