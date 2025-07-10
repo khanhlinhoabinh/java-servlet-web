@@ -4,8 +4,8 @@
 $repoOwner = "DangTrongLuong"
 $repoName = "java-servlet-web"
 $artifactName = "servlet-war"
-$tomcatWebapps = "E:\DevOps\Apache_Tomcat\webapps"
-$tomcatStartup = "E:\DevOps\Apache_Tomcat\bin\startup.bat"
+$tomcatWebapps = "E:\DevOps\ApacheTomcat\webapps"
+$tomcatStartup = "E:\DevOps\ApacheTomcat\bin\startup.bat"
 $warFileName = "java-servlet-web-1.0-SNAPSHOT.war"
 
 # Lấy workflow run mới nhất
