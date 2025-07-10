@@ -40,7 +40,7 @@ public class InfoServletTest {
                 "Output does not contain second member");
         assertTrue(output.contains("<form method='post' action='/java-servlet-web-1.0-SNAPSHOT/info'>"),
                 "Output does not contain form");
-        assertTrue(output.contains("<a href='http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/'><button>Back to Index</button></a>"),
+        assertTrue(output.contains("<a href='http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/'><button>Back to Home</button></a>"),
                 "Output does not contain back button");
     }
 
