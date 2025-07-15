@@ -3,6 +3,7 @@ package com;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -35,7 +36,11 @@ public class HelloServletTest {
         // Check output content
         writer.flush();
         String output = stringWriter.toString();
-        assertTrue(output.contains("<h1>Hello, World, I am a servlet, chú ý nhánh của chi mai-08/07/2025 nhé!</h1>"),
+        assertTrue(output.contains("<h1>Hello, World, I am a servlet, chú ý nhánh của truongphuc-08/07/2025 nhé!</h1>"),
+                "Output does not contain expected heading");
+                assertTrue(output.contains("<h2>CD đã được triển khai, mọi thứ đã thay đổi </h2>"),
+                "Output does not contain expected heading");
+                assertTrue(output.contains("<h2>Thay đổi lần 2</h2>"),
                 "Output does not contain expected heading");
         assertTrue(output.contains("<h2>CD đã được triển khai, mọi thứ đã thay đổi</h2>"),
                 "Output does not contain expected paragraph");

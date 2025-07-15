@@ -1,12 +1,8 @@
-name: Java CI/CD with Maven - Build and Deploy WAR
+name: Java CI with Maven - Build WAR on HelloServlet Change
 
 on:
   push:
-    branches: [main]
-    paths:
-      - "src/main/**"
-      - "src/test/**"
-
+    branches: [feature-phuc-java]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,15 +13,18 @@ jobs:
         with:
           java-version: "24"
           distribution: "temurin"
+      - name: Run Unit Tests with Maven
+        run: mvn clean test
       - name: Verify with Maven
-        run: mvn clean verify -DskipTests
+        run: mvn clean verify # Kiểm tra mã
       - name: Build with Maven
-        run: mvn package
+        run: mvn package # Build WAR
       - name: Upload WAR artifact
         uses: actions/upload-artifact@v4
         with:
           name: servlet-war
           path: target/*.war
+<<<<<<< HEAD
           if-no-files-found: error
 
   deploy:
@@ -57,3 +56,6 @@ jobs:
         run: |
           PowerShell -ExecutionPolicy Bypass -Command "Start-Sleep -Seconds 10; $res = Invoke-WebRequest -Uri 'http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/' -UseBasicParsing -ErrorAction SilentlyContinue; if ($res.StatusCode -eq 200) { Write-Host 'Deployment successful!' } else { Write-Error ' Deployment failed or invalid response.'; exit 1 }"
         shell: cmd
+=======
+          if-no-files-found: error
+>>>>>>> feature-phuc-java
