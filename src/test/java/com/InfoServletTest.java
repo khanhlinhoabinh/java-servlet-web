@@ -2,7 +2,7 @@ package com;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import com.example.InfoServlet;
 import org.mockito.Mockito;
 import java.io.PrintWriter;
@@ -34,13 +34,15 @@ public class InfoServletTest {
         String output = stringWriter.toString();
         assertTrue(output.contains("<h2>Thông tin nhóm:</h2>"),
                 "Output does not contain group info heading");
-        assertTrue(output.contains("<li>DangTrongLuong - MSSV: BIT230250</li>"),
+        assertTrue(output.contains("<li>Phạm Khánh Linh - MSSV: BIT230234</li>"),
                 "Output does not contain first member");
-        assertTrue(output.contains("<li>PhamMinhDan - MSSV: BIT230074</li>"),
+        assertTrue(output.contains("<li>Lý Trường Phúc  - MSSV: BIT230324</li>"),
                 "Output does not contain second member");
+        assertTrue(output.contains("<li>Đỗ Thị Chi Mai - MSSV: BIT230252</li>"),
+                "Output does not contain third member");
         assertTrue(output.contains("<form method='post' action='/java-servlet-web-1.0-SNAPSHOT/info'>"),
                 "Output does not contain form");
-        assertTrue(output.contains("<a href='http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/'><button>Back to Index</button></a>"),
+        assertTrue(output.contains("<a href='http://localhost:8082/java-servlet-web-1.0-SNAPSHOT/'><button>Back to Home</button></a>"),
                 "Output does not contain back button");
     }
 
