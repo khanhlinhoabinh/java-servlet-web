@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 
 import com.bookstore.model.Book;
 
-import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,12 +18,16 @@ public class BookServlet extends HttpServlet {
     private BookService bookService = new BookService();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-         System.out.println("BookServlet loaded!");
-        List<Book> books = bookService.getAllBooks();
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println("BookServlet loaded!");
 
+        // Thiết lập định dạng phản hồi
         resp.setContentType("text/html;charset=UTF-8");
 
+        
+        List<Book> books = bookService.getAllBooks();
+
+        // In ra HTML
         PrintWriter out = resp.getWriter();
 
         out.println("<html><head><title>Sách thiếu nhi</title></head><body>");
