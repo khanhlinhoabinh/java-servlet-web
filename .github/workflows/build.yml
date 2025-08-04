@@ -2,11 +2,10 @@ name: Java CI/CD with Maven - Build and Deploy WAR
 
 on:
   push:
-    branches: [main]
+    branches:
+      - '**'    # Tất cả các nhánh
     paths:
-      - "src/main/**"
-      - "src/test/**"
-
+      - '**'    # Tất cả file/thư mục
 jobs:
   build:
     runs-on: ubuntu-latest
