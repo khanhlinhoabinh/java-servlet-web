@@ -15,10 +15,15 @@ public class BookServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-         System.out.println("BookServlet loaded!");
-        
+        System.out.println("BookServlet loaded!");
+
+        // Thiết lập định dạng phản hồi
         resp.setContentType("text/html;charset=UTF-8");
 
+        // Lấy danh sách sách từ BookService
+        List<Book> books = bookService.getAllBooks();
+
+        // In ra HTML
         PrintWriter out = resp.getWriter();
         out.println("<html><head><title>Sách thiếu nhi</title></head><body>");
         out.println("<h1>Danh sách sách thiếu nhi</h1>");
