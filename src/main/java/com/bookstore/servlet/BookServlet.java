@@ -1,6 +1,9 @@
 package com.bookstore.servlet;
 
 import com.bookstore.service.BookService;
+
+import jakarta.servlet.annotation.WebServlet;
+
 import com.bookstore.model.Book;
 
 import javax.servlet.*;
@@ -9,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+@WebServlet("/books") 
 public class BookServlet extends HttpServlet {
 
     private BookService bookService = new BookService();
