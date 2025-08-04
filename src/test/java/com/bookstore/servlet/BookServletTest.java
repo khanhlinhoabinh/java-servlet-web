@@ -1,4 +1,4 @@
-package com.bookstore.service ;
+package com.bookstore.servlet ;
 
 import com.bookstore.model.Book;
 import com.bookstore.service.BookService;

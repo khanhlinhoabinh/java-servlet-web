@@ -14,13 +14,13 @@ public class BookServlet extends HttpServlet {
     private BookService bookService = new BookService();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         System.out.println("BookServlet loaded!");
 
         // Thiết lập định dạng phản hồi
         resp.setContentType("text/html;charset=UTF-8");
 
-        // Lấy danh sách sách từ BookService
+        
         List<Book> books = bookService.getAllBooks();
 
         // In ra HTML
