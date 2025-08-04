@@ -21,10 +21,11 @@ public class BookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
          System.out.println("BookServlet loaded!");
         List<Book> books = bookService.getAllBooks();
+        
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter out = resp.getWriter();
-        
+
         out.println("<html><head><title>Sách thiếu nhi</title></head><body>");
         out.println("<h1>Danh sách sách thiếu nhi</h1>");
         out.println("<ul>");
