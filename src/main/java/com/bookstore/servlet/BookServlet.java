@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 
 import com.bookstore.model.Book;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
