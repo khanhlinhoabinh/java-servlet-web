@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 
 import com.bookstore.model.Book;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -21,7 +21,7 @@ public class BookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
          System.out.println("BookServlet loaded!");
         List<Book> books = bookService.getAllBooks();
-        
+
         resp.setContentType("text/html;charset=UTF-8");
 
         PrintWriter out = resp.getWriter();
