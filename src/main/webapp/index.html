@@ -1,10 +1,158 @@
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-    <title>Trang bán sách thiếu nhi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng sách thiếu nhi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Baloo 2', cursive;
+            background-color: #f0fff0;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            letter-spacing: 1px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 450px;
+            background-image: url('https://i.imgur.com/z0tFJgU.jpg'); /* ảnh banner lớn */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .products {
+            padding: 50px 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #388e3c;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            width: 240px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product p {
+            margin: 0;
+            padding: 15px;
+            font-size: 18px;
+            color: #2e7d32;
+        }
+
+        .btn-view-all {
+            display: block;
+            margin: 40px auto 0;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-view-all:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 600px) {
+            .banner-text {
+                font-size: 24px;
+            }
+            .product {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>Chào mừng bạn đến với cửa hàng sách thiếu nhi</h2>
 
-    <a href="books">Xem danh sách sách</a>
+    <header>
+        <h1>Cửa hàng sách thiếu nhi</h1>
+    </header>
+
+    <div class="banner-img">
+        <div class="banner-text">Khám phá thế giới kỳ diệu<br>qua từng trang sách!</div>
+    </div>
+
+    <section class="products">
+        <h2>📘 Sách nổi bật</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://i.imgur.com/8pIf0lV.jpg" alt="Sách chữ cái">
+                <p>Học chữ cái cùng bé</p>
+            </div>
+            <div class="product">
+                <img src="https://i.imgur.com/dlw2c0V.jpg" alt="Truyện cổ tích">
+                <p>Truyện cổ tích Việt Nam</p>
+            </div>
+            <div class="product">
+                <img src="https://i.imgur.com/f3cgLn1.jpg" alt="Tô màu sáng tạo">
+                <p>Sáng tạo với sách tô màu</p>
+            </div>
+        </div>
+
+        <a href="books" class="btn-view-all">📚 Xem danh sách sản phẩm</a>
+    </section>
+
 </body>
 </html>
