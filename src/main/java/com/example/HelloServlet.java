@@ -16,7 +16,7 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        out.println("<h1>Hello, World, I am a servlet, chú ý nhánh của truongphuc nhé!</h1>");
+        out.println("<h1>Hello, World, I am a servlet, chú ý nhánh của truongphuc-08/07/2025 nhé!</h1>");
         out.println("<h2>CD đã được triển khai, mọi thứ đã thay đổi </h2>");
         out.println("<h2>Thay đổi lần 2</h2>");
         out.println("<p>Alo alo</p>");
