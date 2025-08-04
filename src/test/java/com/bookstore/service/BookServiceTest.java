@@ -12,7 +12,6 @@ public class BookServiceTest {
     @Test
     public void testGetAllBooksReturnsList() {
         BookService service = new BookService();
-        List<Book> books = service.getAllBooks();
         assertFalse(books.isEmpty());
     }
 }
