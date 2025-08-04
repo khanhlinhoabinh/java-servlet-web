@@ -7,7 +7,6 @@ import com.bookstore.servlet.BookServlet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
 
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
