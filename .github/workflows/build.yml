@@ -2,8 +2,10 @@ name: Java CI/CD with Maven - Build and Deploy WAR
 
 on:
   push:
-    branches: [feature-chimai-html]
-    
+    branches: [ main ]
+    paths:
+      - "src/main/**"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,8 +14,8 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: "21"
-          distribution: "temurin"
+          java-version: '21'
+          distribution: 'temurin'
       - name: Verify with Maven
         run: mvn clean verify -DskipTests
       - name: Build with Maven
@@ -24,3 +26,33 @@ jobs:
           name: servlet-war
           path: target/*.war
           if-no-files-found: error
+
+  deploy:
+    runs-on: [self-hosted, windows]
+    needs: build
+    steps:
+      - name: Download WAR artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: servlet-war
+          path: ./artifacts
+
+      - name: Stop Tomcat
+        run: |
+          PowerShell -ExecutionPolicy Bypass -Command "try { $tcpClient = New-Object System.Net.Sockets.TcpClient; $tcpClient.Connect('localhost', 8080); $tcpClient.Close(); Stop-Process -Name 'java' -Force } catch { Write-Host 'Tomcat not running.' }"
+        shell: cmd
+
+      - name: Deploy WAR to Tomcat
+        run: |
+          PowerShell -ExecutionPolicy Bypass -Command "Remove-Item -Path 'E:\DepOps\ApacheTomcat\webapps\java-servlet-web-1.0-SNAPSHOT.war' -Force -ErrorAction SilentlyContinue; Copy-Item -Path '.\artifacts\*.war' -Destination 'E:\DepOps\ApacheTomcat\webapps\'"
+        shell: cmd
+
+      - name: Start Tomcat
+        run: |
+          PowerShell -ExecutionPolicy Bypass -Command "if (Test-Path 'E:\DepOps\ApacheTomcat\bin\startup.bat') { & 'E:\DepOps\ApacheTomcat\bin\startup.bat' }"
+        shell: cmd
+
+      - name: Verify Deployment
+        run: |
+          PowerShell -ExecutionPolicy Bypass -Command "Start-Sleep -Seconds 10; $res = Invoke-WebRequest -Uri 'http://localhost:8088/java-servlet-web-1.0-SNAPSHOT/'; if ($res.StatusCode -eq 200) { Write-Host 'Deployment successful' } else { throw 'Deployment failed' }"
+        shell: cmd
