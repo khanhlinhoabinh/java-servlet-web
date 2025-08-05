@@ -30,8 +30,8 @@ public class BookServlet extends HttpServlet {
         // In ra HTML
         PrintWriter out = resp.getWriter();
 
-        out.println("<html><head><title>Sách thiếu nhi</title></head><body>");
-        out.println("<h1>Danh sách sách thiếu nhi!!!</h1>");
+        out.println("<html><head><title>Sách thiếu nhi </title></head><body>");
+        out.println("<h1>Danh sách sách thiếu nhi</h1>");
         out.println("<ul>");
         for (Book book : books) {
             out.println("<li>" + book.getTitle() + " - " + book.getAuthor() + " - " + book.getPrice() + "đ</li>");
